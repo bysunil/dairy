@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DairyBill Insights Dashboard</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-lowest": "#ffffff",
+            "surface-bright": "#faf8ff",
+            "on-primary-container": "#d3ffd5",
+            "inverse-primary": "#79db8d",
+            "inverse-on-surface": "#eef0ff",
+            "secondary-container": "#8fa7fe",
+            "surface-variant": "#dae2fd",
+            "tertiary-fixed": "#ffdcc3",
+            "on-error": "#ffffff",
+            "primary-container": "#15803d",
+            "on-tertiary-container": "#fff1e9",
+            "tertiary": "#854600",
+            "outline": "#0f172a",
+            "on-surface-variant": "#3f493f",
+            "inverse-surface": "#283044",
+            "primary": "#00652c",
+            "on-tertiary-fixed": "#2f1500",
+            "error": "#ba1a1a",
+            "on-secondary-fixed": "#00164e",
+            "on-surface": "#131b2e",
+            "surface-container-highest": "#dae2fd",
+            "tertiary-container": "#a95b00",
+            "on-tertiary-fixed-variant": "#6e3900",
+            "surface-tint": "#006d30",
+            "tertiary-fixed-dim": "#ffb77d",
+            "on-primary": "#ffffff",
+            "secondary-fixed": "#dce1ff",
+            "surface-dim": "#d2d9f4",
+            "on-secondary-fixed-variant": "#264191",
+            "on-primary-fixed-variant": "#005323",
+            "surface": "#faf8ff",
+            "surface-container": "#eaedff",
+            "secondary": "#4059aa",
+            "primary-fixed": "#95f8a7",
+            "background": "#faf8ff",
+            "secondary-fixed-dim": "#b6c4ff",
+            "surface-container-high": "#e2e7ff",
+            "error-container": "#ffdad6",
+            "primary-fixed-dim": "#79db8d",
+            "on-tertiary": "#ffffff",
+            "on-background": "#131b2e",
+            "on-secondary": "#ffffff",
+            "outline-variant": "#becabc",
+            "surface-container-low": "#f2f3ff",
+            "on-error-container": "#93000a",
+            "on-secondary-container": "#1d3989",
+            "on-primary-fixed": "#00210a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "gutter-mobile": "0.75rem",
+            "margin-mobile": "0.75rem",
+            "gutter": "1rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "margin": "1rem"
+          },
+          "fontFamily": {
+            "headline-xl-mobile": ["Space Grotesk"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Space Grotesk"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Space Grotesk"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Space Grotesk"],
+            "headline-md": ["Space Grotesk"],
+            "body-xl": ["Plus Jakarta Sans"],
+            "label-md": ["Space Grotesk"],
+            "headline-xl": ["Space Grotesk"],
+            "headline-lg": ["Space Grotesk"],
+            "body-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-xl-mobile": ["26px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "body-lg": ["18px", {"lineHeight": "26px", "fontWeight": "600"}],
+            "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "700"}],
+            "headline-sm": ["18px", {"lineHeight": "26px", "fontWeight": "700"}],
+            "label-lg": ["16px", {"lineHeight": "22px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+            "headline-lg-mobile": ["22px", {"lineHeight": "30px", "letterSpacing": "0em", "fontWeight": "700"}],
+            "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+            "body-xl": ["20px", {"lineHeight": "30px", "fontWeight": "600"}],
+            "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+            "headline-xl": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "700"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .tactile-shadow {
+      box-shadow: 0px 3px 0px #0F172A;
+    }
+    .tactile-shadow-lg {
+      box-shadow: 0px 4px 0px #0F172A;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen antialiased selection:bg-primary-fixed pb-36">
+<!-- TOP APP BAR -->
+<header class="sticky top-0 z-40 bg-surface-container-lowest border-b-2 border-outline px-space-md py-space-sm shadow-sm">
+<div class="max-w-lg mx-auto flex items-center justify-between gap-2">
+<!-- Profile Area -->
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-on-primary flex items-center justify-center border-2 border-outline flex-shrink-0 font-headline-sm text-headline-sm">
+<span class="material-symbols-outlined text-[22px]" data-icon="person">person</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Ramulu (#AP-842)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Society #408 • Sangam Center</p>
+</div>
+</div>
+<!-- Language Badge -->
+<div class="flex-shrink-0">
+<span class="inline-flex items-center gap-1 bg-surface-container-high border-2 border-outline px-2.5 py-1 rounded-xl font-label-sm text-label-sm text-on-surface">
+<span class="material-symbols-outlined text-[15px]" data-icon="translate">translate</span>
+          English (EN)
+        </span>
+</div>
+</div>
+</header>
+<!-- MAIN DASHBOARD CONTENT -->
+<main class="max-w-lg mx-auto px-gutter-mobile pt-4 space-y-4">
+<!-- OFFLINE STATUS PILL -->
+<div class="bg-surface-container-lowest border-2 border-outline rounded-xl p-2.5 flex items-center justify-between tactile-shadow">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary-container border border-outline animate-pulse"></span>
+<div>
+<p class="font-headline-sm text-label-md text-on-surface leading-tight">Offline Analytics</p>
+<p class="font-body-sm text-[12px] text-on-surface-variant leading-none">Synced: 15 mins ago</p>
+</div>
+</div>
+<button aria-label="Refresh Data" class="flex items-center gap-1 bg-surface-container px-3 py-1.5 rounded-lg border-2 border-outline font-label-sm text-label-sm hover:bg-surface-container-high active:translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined text-[16px]" data-icon="sync">sync</span>
+        Refresh
+      </button>
+</div>
+<!-- COLLECTION CYCLE SELECTOR -->
+<section class="bg-surface-container-lowest border-2 border-outline rounded-xl p-3.5 space-y-2.5 tactile-shadow">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="calendar_month">calendar_month</span>
+          Collection Cycle: October 2024 (15 Days)
+        </span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<!-- Selected 1-15 Oct -->
+<button class="bg-primary-container text-on-primary border-2 border-outline rounded-xl p-2.5 text-left tactile-shadow active:translate-y-0.5 transition-transform">
+<div class="flex items-center justify-between mb-0.5">
+<span class="font-headline-sm text-label-md">1 – 15 Oct</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<span class="font-label-sm text-[11px] block opacity-90">Previous 15 Days (Selected)</span>
+</button>
+<!-- Current 16-31 Oct -->
+<button class="bg-surface-bright text-on-surface border-2 border-outline rounded-xl p-2.5 text-left hover:bg-surface-container active:translate-y-0.5 transition-transform">
+<div class="flex items-center justify-between mb-0.5">
+<span class="font-headline-sm text-label-md">16 – 31 Oct</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<span class="font-label-sm text-[11px] text-on-surface-variant block">Current Entry</span>
+</button>
+</div>
+</section>
+<!-- BILL INSIGHTS SUMMARY CARD -->
+<section class="bg-primary-container text-on-primary border-2 border-outline rounded-xl p-4 tactile-shadow-lg relative overflow-hidden">
+<!-- Top meta -->
+<div class="flex items-center justify-between mb-2">
+<span class="inline-flex items-center gap-1 bg-surface-container-lowest text-on-surface border-2 border-outline px-2.5 py-0.5 rounded-full font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-primary text-[15px]" data-icon="verified">verified</span>
+          15 Days Complete
+        </span>
+<span class="font-label-sm text-label-sm opacity-90">Calculated: 15 Oct</span>
+</div>
+<!-- Main Value -->
+<div class="my-3">
+<p class="font-label-md text-label-md uppercase tracking-wider text-on-primary-container">Estimated Bill Value</p>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="font-headline-xl text-[34px] leading-tight font-bold tracking-tight">₹6,450.00</span>
+</div>
+<p class="font-body-md text-body-md text-on-primary-container mt-1">Total Pour: 164.5 Liters • 15-Day Cycle</p>
+</div>
+<!-- Divider line -->
+<div class="h-0.5 bg-outline opacity-40 my-3"></div>
+<!-- Metrics Row -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest text-primary border-2 border-outline flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]" data-icon="payments">payments</span>
+</div>
+<div>
+<p class="font-label-sm text-[11px] text-on-primary-container uppercase">Avg Rate</p>
+<p class="font-headline-sm text-headline-sm leading-none">₹39.20 / L</p>
+</div>
+</div>
+<div class="text-right">
+<span class="inline-block bg-on-primary-container text-primary font-headline-sm text-label-sm px-2.5 py-1 rounded-lg border border-outline">
+            Cycle Closed
+          </span>
+</div>
+</div>
+</section>
+<!-- COLLECTION METRICS GRID (4 CARDS) -->
+<section class="space-y-2">
+<h2 class="font-headline-md text-headline-md text-on-surface px-1">Collection Metrics</h2>
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Card 1: Total Milk -->
+<div class="bg-surface-container-lowest border-2 border-outline rounded-xl p-3 tactile-shadow flex flex-col justify-between min-h-[110px]">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Total Milk</span>
+<span class="material-symbols-outlined text-secondary text-[20px]" data-icon="water_drop">water_drop</span>
+</div>
+<div>
+<p class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">164.5 L</p>
+<p class="font-label-sm text-[11px] text-primary flex items-center gap-0.5 mt-0.5">
+<span class="material-symbols-outlined text-[13px]" data-icon="trending_up">trending_up</span>
+              +12L vs last cycle
+            </p>
+</div>
+</div>
+<!-- Card 2: Avg Rate -->
+<div class="bg-surface-container-lowest border-2 border-outline rounded-xl p-3 tactile-shadow flex flex-col justify-between min-h-[110px]">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Avg Rate</span>
+<span class="material-symbols-outlined text-tertiary-container text-[20px]" data-icon="currency_rupee">currency_rupee</span>
+</div>
+<div>
+<p class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">₹39.20<span class="text-xs">/L</span></p>
+<p class="font-label-sm text-[11px] text-primary mt-0.5">with FAT Bonus</p>
+</div>
+</div>
+<!-- Card 3: Quality -->
+<div class="bg-surface-container-lowest border-2 border-outline rounded-xl p-3 tactile-shadow flex flex-col justify-between min-h-[110px]">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Quality</span>
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="science">science</span>
+</div>
+<div>
+<p class="font-headline-sm text-[16px] text-on-surface leading-snug">6.8% FAT</p>
+<p class="font-label-sm text-[11px] text-on-surface-variant">8.9 SNF • Grade A</p>
+</div>
+</div>
+<!-- Card 4: Shifts Attended -->
+<div class="bg-surface-container-lowest border-2 border-outline rounded-xl p-3 tactile-shadow flex flex-col justify-between min-h-[110px]">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Shifts Attended</span>
+<span class="material-symbols-outlined text-secondary text-[20px]" data-icon="event_available">event_available</span>
+</div>
+<div>
+<p class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">29/30</p>
+<p class="font-label-sm text-[11px] text-error mt-0.5 truncate">1 evening missed</p>
+</div>
+</div>
+</div>
+<!-- Shift breakdown pill bar -->
+<div class="bg-surface-container-low border-2 border-outline rounded-xl px-3 py-2 flex items-center justify-between text-on-surface font-label-sm text-label-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary-container" data-icon="light_mode">light_mode</span>
+          15 Morning (AM)
+        </span>
+<span class="text-outline-variant">•</span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="dark_mode">dark_mode</span>
+          14 Evening (PM)
+        </span>
+<span class="text-outline-variant">•</span>
+<span class="text-error">1 Missed</span>
+</div>
+</section>
+<!-- RECENT MILK SLIP SECTION -->
+<section class="space-y-2.5">
+<div class="flex items-center justify-between px-1">
+<h2 class="font-headline-md text-headline-md text-on-surface">Recent Milk Slip</h2>
+<a class="font-label-sm text-label-sm text-primary underline decoration-2 font-bold hover:text-primary-container" href="#records">View All Records</a>
+</div>
+<!-- Slip Card -->
+<div class="bg-surface-container-lowest border-2 border-outline rounded-xl overflow-hidden tactile-shadow">
+<!-- Header Strip -->
+<div class="bg-secondary px-3.5 py-2 flex items-center justify-between text-on-secondary border-b-2 border-outline">
+<span class="font-headline-sm text-label-md flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]" data-icon="receipt_long">receipt_long</span>
+            15 Oct • Morning Shift (#1042)
+          </span>
+<span class="font-label-sm text-[11px] bg-surface-container-lowest text-secondary px-2 py-0.5 rounded border border-outline">Buffalo</span>
+</div>
+<!-- 4-Box Metric Matrix -->
+<div class="grid grid-cols-4 divide-x-2 divide-outline border-b-2 border-outline bg-surface-bright text-center">
+<div class="py-2.5 px-1">
+<p class="font-label-sm text-[11px] text-on-surface-variant uppercase">Liters</p>
+<p class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mt-0.5">11.4 L</p>
+</div>
+<div class="py-2.5 px-1">
+<p class="font-label-sm text-[11px] text-on-surface-variant uppercase">Fat</p>
+<p class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mt-0.5">7.1%</p>
+</div>
+<div class="py-2.5 px-1">
+<p class="font-label-sm text-[11px] text-on-surface-variant uppercase">SNF</p>
+<p class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mt-0.5">9.0</p>
+</div>
+<div class="py-2.5 px-1 bg-surface-container-low">
+<p class="font-label-sm text-[11px] text-on-surface-variant uppercase">Amount</p>
+<p class="font-headline-lg-mobile text-headline-lg-mobile text-primary mt-0.5 font-bold">₹486</p>
+</div>
+</div>
+<!-- Verification Footnote -->
+<div class="px-3.5 py-2 bg-surface-container-lowest flex items-center justify-between text-on-surface-variant">
+<span class="font-body-sm text-[12px] flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="verified_user">verified_user</span>
+            Society Analyzer Print Verified
+          </span>
+<span class="font-label-sm text-[12px]">06:42 AM</span>
+</div>
+</div>
+</section>
+<!-- OPEN SOURCE FOOTER CONTACT CARD -->
+<section class="bg-surface-container border-2 border-outline rounded-xl p-3.5 tactile-shadow">
+<div class="flex items-center justify-between gap-3">
+<div class="min-w-0">
+<p class="font-headline-sm text-label-md text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="contact_support">contact_support</span>
+            Open Source Milk Bill Analytics
+          </p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate mt-0.5">
+            Society Helpline: <span class="font-headline-sm text-on-surface">9440123456</span>
+</p>
+</div>
+<a class="flex-shrink-0 bg-primary-container text-on-primary font-headline-sm text-label-md px-4 py-2.5 rounded-xl border-2 border-outline tactile-shadow flex items-center gap-1.5 active:translate-y-0.5 transition-transform" href="tel:9440123456">
+<span class="material-symbols-outlined text-[18px]" data-icon="call">call</span>
+          Call
+        </a>
+</div>
+</section>
+</main>
+<!-- DOCKED BOTTOM NAVIGATION WITH ELEVATED OCR SCAN BUTTON -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface-container-lowest border-t-[3px] border-outline">
+<div class="max-w-lg mx-auto relative flex justify-between items-center px-space-md py-space-xs min-h-[72px]">
+<!-- Left Tab: Home (Active) -->
+<a aria-label="Home" class="flex flex-col items-center justify-center bg-primary-container text-on-primary rounded-xl px-4 py-1.5 min-h-[56px] min-w-[72px] border-2 border-outline active:translate-y-0.5 transition-transform" href="#home">
+<span class="material-symbols-outlined text-[24px]" data-icon="home" data-weight="fill" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-md text-label-md mt-0.5">Home</span>
+</a>
+<!-- Center Elevated OCR Camera Button -->
+<div class="absolute left-1/2 -translate-x-1/2 -top-6">
+<button aria-label="Scan Milk Slip" class="w-[74px] h-[74px] rounded-full bg-primary-container text-on-primary border-[3.5px] border-outline tactile-shadow flex flex-col items-center justify-center ring-4 ring-surface-container-lowest active:translate-y-1 active:shadow-none transition-transform">
+<span class="material-symbols-outlined text-[30px] leading-none" data-icon="document_scanner" data-weight="fill" style="font-variation-settings: 'FILL' 1;">document_scanner</span>
+<span class="font-label-sm text-[11px] font-bold mt-0.5">Scan</span>
+</button>
+</div>
+<!-- Right Tab: Records (Ledger) -->
+<a aria-label="Records" class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container rounded-xl px-4 py-1.5 min-h-[56px] min-w-[72px] active:translate-y-0.5 transition-transform" href="#records">
+<span class="material-symbols-outlined text-[24px]" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-label-md text-label-md mt-0.5">Records</span>
+</a>
+</div>
+</nav>
+</body></html>

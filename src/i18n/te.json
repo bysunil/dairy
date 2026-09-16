@@ -1,0 +1,97 @@
+{
+  "auth": {
+    "login_prompt": "మీ పాల రికార్డులను ట్రాక్ చేయడానికి లాగిన్ చేయండి",
+    "signup_prompt": "మీ పాల రికార్డులను ట్రాక్ చేయడానికి ఖాతాను సృష్టించండి",
+    "farmer_name": "రైతు పేరు",
+    "farmer_name_placeholder": "ఉదా. రాములు",
+    "mobile_number": "మొబైల్ నంబర్",
+    "mobile_number_placeholder": "10-అంకెల మొబైల్ నంబర్",
+    "sign_in": "లాగిన్",
+    "sign_up": "సైన్ అప్",
+    "no_account": "ఖాతా లేదా? సైన్ అప్ చేయండి",
+    "have_account": "ఇప్పటికే ఖాతా ఉందా? లాగిన్ చేయండి",
+    "switch_lang": "Switch to English",
+    "invalid_input": "దయచేసి సరైన పేరు మరియు మొబైల్ నంబర్‌ను నమోదు చేయండి."
+  },
+  "nav": {
+    "home": "ఇల్లు",
+    "records": "రికార్డులు",
+    "no_society": "సొసైటీ స్కాన్ చేయబడలేదు"
+  },
+  "receipts": {
+    "saved": "రసీదు ప్రాసెస్ చేయబడింది మరియు సేవ్ చేయడానికి సిద్ధంగా ఉంది!",
+    "society_saved": "సొసైటీ {0} మీ ప్రొఫైల్‌లో సేవ్ చేయబడింది!"
+  },
+  "scanner": {
+    "scan": "స్కాన్",
+    "verify_details": "వివరాలను ధృవీకరించండి",
+    "analyzing": "రసీదు విశ్లేషిస్తోంది...",
+    "retrying": "అధిక డిమాండ్, మళ్లీ ప్రయత్నిస్తోంది... దయచేసి వేచి ఉండండి",
+    "liters": "లీటర్లు",
+    "rate": "ధర",
+    "amount": "సొమ్ము",
+    "save_sync": "సేవ్ చేయండి",
+    "try_again": "మళ్లీ ప్రయత్నించండి"
+  },
+  "home": {
+    "collection_cycle": "సేకరణ చక్రం: అక్టోబర్ 2026 (15 రోజులు)",
+    "first_half": "మొదటి సగం",
+    "second_half": "రెండవ సగం",
+    "recent_receipts": "ఇటీవలి రశీదులు",
+    "buffalo": "గేదె",
+    "liters": "లీటర్లు",
+    "fat": "వెన్న",
+    "snf": "SNF",
+    "amount": "మొత్తం"
+  },
+  "stats": {
+    "estimated_bill": "అంచనా వేసిన బిల్లు విలువ",
+    "avg": "సగటు",
+    "days_complete": "15 రోజులు పూర్తయ్యాయి",
+    "calculated": "లెక్కించిన: 15 అక్టోబర్",
+    "total_pour": "మొత్తం పోసిన పాలు:",
+    "liters": "లీటర్లు",
+    "cycle_15_day": "15-రోజుల చక్రం",
+    "avg_rate": "సగటు ధర",
+    "cycle_closed": "చక్రం ముగిసింది",
+    "collection_metrics": "సేకరణ కొలమానాలు",
+    "total_milk": "మొత్తం పాలు",
+    "great_yield": "అద్భుతమైన దిగుబడి",
+    "with_bonus": "వెన్న బోనస్‌తో",
+    "quality": "నాణ్యత",
+    "grade_a": "గ్రేడ్ ఎ",
+    "shifts_attended": "హాజరైన షిఫ్టులు",
+    "total_shifts": "మొత్తం షిఫ్టులు",
+    "morning": "ఉదయం (AM)",
+    "evening": "సాయంత్రం (PM)"
+  },
+  "records": {
+    "title": "పాల రికార్డులు",
+    "subtitle": "బిల్ రికార్డులు & పాల సేకరణ చరిత్ర",
+    "summary": "సేకరణ సారాంశం",
+    "cycles": "చక్రాలు",
+    "quantity": "పరిమాణం",
+    "total_bill": "మొత్తం బిల్లు",
+    "avg_fat": "సగటు వెన్న: 7.5%",
+    "cumulative": "సంచిత",
+    "billing_cycles": "బిల్లింగ్ చక్రాలు",
+    "every_15_days": "ప్రతి 15 రోజులకు",
+    "filter_all": "అన్నీ",
+    "filter_completed": "పూర్తయింది",
+    "filter_current": "ప్రస్తుతం",
+    "cycle": "చక్రం:",
+    "calculated_bill": "లెక్కించిన బిల్లు",
+    "poured_milk": "పోసిన పాలు",
+    "view_receipts": "రశీదులను చూడండి",
+    "no_cycles": "చక్రాలు కనుగొనబడలేదు",
+    "back": "బిల్లింగ్ చక్రాలకు తిరిగి వెళ్లండి",
+    "receipts_title": "రశీదులు"
+  },
+  "profile": {
+    "title": "రైతు ప్రొఫైల్",
+    "mobile": "మొబైల్",
+    "society_name": "సొసైటీ పేరు",
+    "no_society_set": "సొసైటీ సెట్ చేయబడలేదు",
+    "sign_out": "లాగ్ అవుట్ చేయండి"
+  }
+}

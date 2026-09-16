@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DairyBill - Milk Records &amp; Ledger</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Space Grotesk & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-lowest": "#ffffff",
+            "surface-bright": "#faf8ff",
+            "on-primary-container": "#d3ffd5",
+            "inverse-primary": "#79db8d",
+            "inverse-on-surface": "#eef0ff",
+            "secondary-container": "#8fa7fe",
+            "surface-variant": "#dae2fd",
+            "tertiary-fixed": "#ffdcc3",
+            "on-error": "#ffffff",
+            "primary-container": "#15803d",
+            "on-tertiary-container": "#fff1e9",
+            "tertiary": "#854600",
+            "outline": "#0F172A",
+            "on-surface-variant": "#3f493f",
+            "inverse-surface": "#283044",
+            "primary": "#00652c",
+            "on-tertiary-fixed": "#2f1500",
+            "error": "#ba1a1a",
+            "on-secondary-fixed": "#00164e",
+            "on-surface": "#131b2e",
+            "surface-container-highest": "#dae2fd",
+            "tertiary-container": "#a95b00",
+            "on-tertiary-fixed-variant": "#6e3900",
+            "surface-tint": "#006d30",
+            "tertiary-fixed-dim": "#ffb77d",
+            "on-primary": "#ffffff",
+            "secondary-fixed": "#dce1ff",
+            "surface-dim": "#d2d9f4",
+            "on-secondary-fixed-variant": "#264191",
+            "on-primary-fixed-variant": "#005323",
+            "surface": "#faf8ff",
+            "surface-container": "#eaedff",
+            "secondary": "#1E3A8A",
+            "primary-fixed": "#95f8a7",
+            "background": "#faf8ff",
+            "secondary-fixed-dim": "#b6c4ff",
+            "surface-container-high": "#e2e7ff",
+            "error-container": "#ffdad6",
+            "primary-fixed-dim": "#79db8d",
+            "on-tertiary": "#ffffff",
+            "on-background": "#131b2e",
+            "on-secondary": "#ffffff",
+            "outline-variant": "#becabc",
+            "surface-container-low": "#f2f3ff",
+            "on-error-container": "#93000a",
+            "on-secondary-container": "#1d3989",
+            "on-primary-fixed": "#00210a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "gutter-mobile": "0.75rem",
+            "margin-mobile": "0.75rem",
+            "gutter": "1rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "margin": "1rem"
+          },
+          "fontFamily": {
+            "headline-xl-mobile": ["Space Grotesk"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Space Grotesk"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Space Grotesk"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Space Grotesk"],
+            "headline-md": ["Space Grotesk"],
+            "body-xl": ["Plus Jakarta Sans"],
+            "label-md": ["Space Grotesk"],
+            "headline-xl": ["Space Grotesk"],
+            "headline-lg": ["Space Grotesk"],
+            "body-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-xl-mobile": ["26px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "body-lg": ["18px", {"lineHeight": "26px", "fontWeight": "600"}],
+            "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "700"}],
+            "headline-sm": ["18px", {"lineHeight": "26px", "fontWeight": "700"}],
+            "label-lg": ["16px", {"lineHeight": "22px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+            "headline-lg-mobile": ["22px", {"lineHeight": "30px", "letterSpacing": "0em", "fontWeight": "700"}],
+            "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+            "body-xl": ["20px", {"lineHeight": "30px", "fontWeight": "600"}],
+            "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+            "headline-xl": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "700"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .tactile-shadow {
+      box-shadow: 0px 3px 0px #0F172A;
+    }
+    .tactile-shadow-lg {
+      box-shadow: 0px 4px 0px #0F172A;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col font-body-md">
+<!-- Mobile Container Constraint (360px - 412px focus, up to max-w-lg) -->
+<div class="w-full max-w-lg mx-auto bg-surface flex flex-col min-h-screen pb-28">
+<!-- Top Navigation Bar -->
+<header class="bg-surface sticky top-0 z-40 w-full px-space-md py-space-sm flex justify-between items-center border-b-2 border-outline">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 bg-primary-container text-on-primary border-2 border-outline flex items-center justify-center rounded-xl font-label-lg text-label-lg shadow-sm">
+<span class="material-symbols-outlined text-[24px]" data-icon="account_circle">account_circle</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-tertiary">Society Code / ID: 408</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">Narayana Rao (#AP-842)</span>
+</div>
+</div>
+<!-- Language Pill -->
+<div class="flex items-center bg-surface-container-lowest border-2 border-outline px-3 py-1.5 rounded-full tactile-shadow">
+<span class="material-symbols-outlined text-[18px] text-primary mr-1" data-icon="translate">translate</span>
+<span class="font-label-sm text-label-sm text-on-surface">English (EN)</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="px-space-md pt-space-md space-y-space-md flex-1">
+<!-- Screen Title Header -->
+<section class="flex items-start justify-between gap-2">
+<div>
+<h1 class="font-headline-xl-mobile text-headline-xl-mobile text-on-surface">Milk Records</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-medium">Bill Records &amp; Milk Collection History</p>
+</div>
+<div class="bg-surface-container-high border-2 border-outline px-2.5 py-1 rounded-lg">
+<span class="font-label-sm text-label-sm text-secondary">Open Source Records</span>
+</div>
+</section>
+<!-- Collection Summary Card (Solid Green Container) -->
+<section class="bg-primary-container text-on-primary rounded-xl border-2 border-outline p-space-md tactile-shadow-lg">
+<!-- Header row -->
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[24px] text-on-primary" data-icon="water_drop">water_drop</span>
+<span class="font-headline-sm text-headline-sm text-on-primary">Collection Summary</span>
+</div>
+<div class="bg-surface-container-lowest text-on-surface font-label-sm text-label-sm px-2.5 py-0.5 rounded-full border-2 border-outline">
+            2026
+          </div>
+</div>
+<!-- 3-Metric White Subcard -->
+<div class="bg-surface-container-lowest text-on-surface border-2 border-outline rounded-xl p-3 my-2 grid grid-cols-3 divide-x-2 divide-outline">
+<div class="text-center px-1">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Cycles</span>
+<span class="block font-headline-md text-headline-md text-on-surface mt-0.5">3</span>
+</div>
+<div class="text-center px-1">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Quantity</span>
+<span class="block font-headline-md text-headline-md text-on-surface mt-0.5">578.3 L</span>
+</div>
+<div class="text-center px-1">
+<span class="block font-label-sm text-label-sm text-primary">Total Bill</span>
+<span class="block font-headline-md text-headline-md text-primary mt-0.5">₹20,460</span>
+</div>
+</div>
+<!-- Bottom Metric Row -->
+<div class="flex items-center justify-between pt-1 px-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-on-primary" data-icon="show_chart">show_chart</span>
+<span class="font-label-md text-label-md text-on-primary">Average Fat: 7.5% FAT</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-primary opacity-90">Cumulative</span>
+</div>
+</section>
+<!-- Billing Cycles Filter Section -->
+<section class="space-y-space-sm">
+<div class="flex items-baseline justify-between">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Billing Cycles</h2>
+<span class="font-label-sm text-label-sm text-tertiary">Every 15 Days</span>
+</div>
+<!-- Filter Chips -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1">
+<button class="bg-primary-container text-on-primary border-2 border-outline font-label-md text-label-md px-4 py-2 rounded-xl tactile-shadow transition-transform active:translate-y-0.5">
+            All (Selected)
+          </button>
+<button class="bg-surface-container-lowest text-on-surface border-2 border-outline font-label-md text-label-md px-4 py-2 rounded-xl tactile-shadow hover:bg-surface-container transition-transform active:translate-y-0.5">
+            Completed
+          </button>
+<button class="bg-surface-container-lowest text-on-surface border-2 border-outline font-label-md text-label-md px-4 py-2 rounded-xl tactile-shadow hover:bg-surface-container transition-transform active:translate-y-0.5">
+            Current
+          </button>
+</div>
+</section>
+<!-- 15-Day Cycle Cards (Historical Records) -->
+<section class="space-y-space-md">
+<!-- Cycle 1 Card -->
+<article class="bg-surface-container-lowest border-2 border-outline rounded-xl tactile-shadow-lg overflow-hidden">
+<!-- Blue Header -->
+<div class="bg-secondary text-on-secondary px-space-md py-2.5 flex justify-between items-center border-b-2 border-outline">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]" data-icon="event_note">event_note</span>
+<span class="font-label-lg text-label-lg">Cycle: 1–15 September 2026</span>
+</div>
+<span class="bg-surface-container-lowest text-on-surface font-label-sm text-label-sm px-2 py-0.5 rounded border border-outline">
+              15-Day Bill
+            </span>
+</div>
+<div class="p-space-md space-y-space-sm">
+<!-- Calculated Bill Row -->
+<div class="flex items-center justify-between pb-2 border-b border-outline-variant">
+<div>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">CALCULATED BILL</span>
+<span class="block font-headline-xl-mobile text-headline-xl-mobile text-primary">₹6,450.00</span>
+</div>
+<div class="flex items-center gap-1.5 bg-on-primary-container text-primary font-label-md text-label-md px-3 py-1.5 rounded-full border-2 border-outline">
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle">check_circle</span>
+<span>Completed</span>
+</div>
+</div>
+<!-- 3-Column Stats Matrix -->
+<div class="grid grid-cols-3 gap-2 py-1">
+<div class="bg-surface-container-low p-2 rounded-lg border border-outline text-center">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Poured Milk</span>
+<span class="block font-label-lg text-label-lg text-on-surface mt-0.5">184.5 L</span>
+</div>
+<div class="bg-surface-container-low p-2 rounded-lg border border-outline text-center">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Avg Fat</span>
+<span class="block font-label-lg text-label-lg text-on-surface mt-0.5">7.4%</span>
+</div>
+<div class="bg-surface-container-low p-2 rounded-lg border border-outline text-center">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Avg Rate</span>
+<span class="block font-label-lg text-label-lg text-on-surface mt-0.5">₹34.95/L</span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-2 pt-1">
+<button class="flex-1 bg-surface text-on-surface border-2 border-outline py-2.5 px-3 rounded-xl font-label-md text-label-md flex items-center justify-center gap-2 tactile-shadow hover:bg-surface-container transition-transform active:translate-y-0.5">
+<span class="material-symbols-outlined text-[20px] text-primary" data-icon="download">download</span>
+<span>Download Slip</span>
+</button>
+<button aria-label="Share" class="bg-surface text-on-surface border-2 border-outline p-2.5 rounded-xl font-label-md text-label-md flex items-center justify-center tactile-shadow hover:bg-surface-container transition-transform active:translate-y-0.5">
+<span class="material-symbols-outlined text-[20px]" data-icon="share">share</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Cycle 2 Card -->
+<article class="bg-surface-container-lowest border-2 border-outline rounded-xl tactile-shadow-lg overflow-hidden">
+<!-- Blue Header -->
+<div class="bg-secondary text-on-secondary px-space-md py-2.5 flex justify-between items-center border-b-2 border-outline">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]" data-icon="event_note">event_note</span>
+<span class="font-label-lg text-label-lg">Cycle: 16–31 August 2026</span>
+</div>
+<span class="bg-surface-container-lowest text-on-surface font-label-sm text-label-sm px-2 py-0.5 rounded border border-outline">
+              15-Day Bill
+            </span>
+</div>
+<div class="p-space-md space-y-space-sm">
+<!-- Calculated Bill Row -->
+<div class="flex items-center justify-between pb-2 border-b border-outline-variant">
+<div>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">CALCULATED BILL</span>
+<span class="block font-headline-xl-mobile text-headline-xl-mobile text-primary">₹7,120.00</span>
+</div>
+<div class="flex items-center gap-1.5 bg-on-primary-container text-primary font-label-md text-label-md px-3 py-1.5 rounded-full border-2 border-outline">
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle">check_circle</span>
+<span>Completed</span>
+</div>
+</div>
+<!-- 3-Column Stats Matrix -->
+<div class="grid grid-cols-3 gap-2 py-1">
+<div class="bg-surface-container-low p-2 rounded-lg border border-outline text-center">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Poured Milk</span>
+<span class="block font-label-lg text-label-lg text-on-surface mt-0.5">201.0 L</span>
+</div>
+<div class="bg-surface-container-low p-2 rounded-lg border border-outline text-center">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Avg Fat</span>
+<span class="block font-label-lg text-label-lg text-on-surface mt-0.5">7.6%</span>
+</div>
+<div class="bg-surface-container-low p-2 rounded-lg border border-outline text-center">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Avg Rate</span>
+<span class="block font-label-lg text-label-lg text-on-surface mt-0.5">₹35.42/L</span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-2 pt-1">
+<button class="flex-1 bg-surface text-on-surface border-2 border-outline py-2.5 px-3 rounded-xl font-label-md text-label-md flex items-center justify-center gap-2 tactile-shadow hover:bg-surface-container transition-transform active:translate-y-0.5">
+<span class="material-symbols-outlined text-[20px] text-primary" data-icon="download">download</span>
+<span>Download Slip</span>
+</button>
+<button aria-label="Share" class="bg-surface text-on-surface border-2 border-outline p-2.5 rounded-xl font-label-md text-label-md flex items-center justify-center tactile-shadow hover:bg-surface-container transition-transform active:translate-y-0.5">
+<span class="material-symbols-outlined text-[20px]" data-icon="share">share</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Cycle 3 Card -->
+<article class="bg-surface-container-lowest border-2 border-outline rounded-xl tactile-shadow-lg overflow-hidden">
+<!-- Blue Header -->
+<div class="bg-secondary text-on-secondary px-space-md py-2.5 flex justify-between items-center border-b-2 border-outline">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]" data-icon="event_note">event_note</span>
+<span class="font-label-lg text-label-lg">Cycle: 1–15 August 2026</span>
+</div>
+<span class="bg-surface-container-lowest text-on-surface font-label-sm text-label-sm px-2 py-0.5 rounded border border-outline">
+              15-Day Bill
+            </span>
+</div>
+<div class="p-space-md space-y-space-sm">
+<!-- Calculated Bill Row -->
+<div class="flex items-center justify-between pb-2 border-b border-outline-variant">
+<div>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">CALCULATED BILL</span>
+<span class="block font-headline-xl-mobile text-headline-xl-mobile text-primary">₹6,890.00</span>
+</div>
+<div class="flex items-center gap-1.5 bg-on-primary-container text-primary font-label-md text-label-md px-3 py-1.5 rounded-full border-2 border-outline">
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle">check_circle</span>
+<span>Completed</span>
+</div>
+</div>
+<!-- 3-Column Stats Matrix -->
+<div class="grid grid-cols-3 gap-2 py-1">
+<div class="bg-surface-container-low p-2 rounded-lg border border-outline text-center">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Poured Milk</span>
+<span class="block font-label-lg text-label-lg text-on-surface mt-0.5">192.8 L</span>
+</div>
+<div class="bg-surface-container-low p-2 rounded-lg border border-outline text-center">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Avg Fat</span>
+<span class="block font-label-lg text-label-lg text-on-surface mt-0.5">7.5%</span>
+</div>
+<div class="bg-surface-container-low p-2 rounded-lg border border-outline text-center">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Avg Rate</span>
+<span class="block font-label-lg text-label-lg text-on-surface mt-0.5">₹35.73/L</span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-2 pt-1">
+<button class="flex-1 bg-surface text-on-surface border-2 border-outline py-2.5 px-3 rounded-xl font-label-md text-label-md flex items-center justify-center gap-2 tactile-shadow hover:bg-surface-container transition-transform active:translate-y-0.5">
+<span class="material-symbols-outlined text-[20px] text-primary" data-icon="download">download</span>
+<span>Download Slip</span>
+</button>
+<button aria-label="Share" class="bg-surface text-on-surface border-2 border-outline p-2.5 rounded-xl font-label-md text-label-md flex items-center justify-center tactile-shadow hover:bg-surface-container transition-transform active:translate-y-0.5">
+<span class="material-symbols-outlined text-[20px]" data-icon="share">share</span>
+</button>
+</div>
+</div>
+</article>
+</section>
+<!-- Bottom Help & Supervisor Contact Card -->
+<section class="bg-surface-container-lowest border-2 border-outline rounded-xl p-space-md tactile-shadow flex items-center justify-between gap-3">
+<div class="flex items-start gap-2.5">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high border-2 border-outline flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px] text-secondary" data-icon="support_agent">support_agent</span>
+</div>
+<div>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Have doubts regarding records?</span>
+<span class="block font-label-md text-label-md text-on-surface font-bold">Supervisor: 98480 22338</span>
+</div>
+</div>
+<a class="bg-surface text-on-surface border-2 border-outline font-label-md text-label-md px-4 py-2.5 rounded-xl tactile-shadow flex items-center gap-1.5 hover:bg-surface-container transition-transform active:translate-y-0.5" href="tel:9848022338">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="call">call</span>
+<span>Call</span>
+</a>
+</section>
+</main>
+<!-- Bottom Navigation Bar with Elevated Center Camera OCR Action -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface-container-lowest border-t-[3px] border-outline">
+<div class="max-w-lg mx-auto h-[76px] px-space-md flex justify-between items-center relative">
+<!-- Left Item: Home -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 min-w-[64px] min-h-[58px]" href="#">
+<span class="material-symbols-outlined text-[26px]" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm mt-0.5">Home</span>
+</a>
+<!-- Center Item: Elevated OCR Camera Button -->
+<div class="relative flex flex-col items-center justify-center -top-5">
+<button aria-label="Scan Milk Slip" class="w-[72px] h-[72px] bg-primary-container text-on-primary rounded-full border-[3.5px] border-outline tactile-shadow flex flex-col items-center justify-center transition-transform active:translate-y-1 active:shadow-none">
+<span class="material-symbols-outlined text-[32px] text-on-primary" data-icon="document_scanner">document_scanner</span>
+<span class="font-label-sm text-label-sm text-on-primary font-bold">Scan</span>
+</button>
+</div>
+<!-- Right Item: Records (Active Destination) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary rounded-xl px-3 py-1.5 min-w-[64px] min-h-[58px] border-2 border-outline" href="#">
+<span class="material-symbols-outlined text-[26px] text-on-primary" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-sm text-label-sm font-bold mt-0.5">Records</span>
+</a>
+</div>
+</nav>
+</div>
+</body></html>

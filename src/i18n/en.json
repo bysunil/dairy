@@ -1,0 +1,97 @@
+{
+  "auth": {
+    "login_prompt": "Sign in to track your milk records",
+    "signup_prompt": "Create an account to track your milk records",
+    "farmer_name": "Farmer Name",
+    "farmer_name_placeholder": "e.g. Ramulu",
+    "mobile_number": "Mobile Number",
+    "mobile_number_placeholder": "10-digit mobile number",
+    "sign_in": "Sign In",
+    "sign_up": "Sign Up",
+    "no_account": "Don't have an account? Sign up",
+    "have_account": "Already have an account? Sign in",
+    "switch_lang": "Switch to Telugu (తెలుగు)",
+    "invalid_input": "Please enter a valid Name and Mobile Number."
+  },
+  "nav": {
+    "home": "Home",
+    "records": "Records",
+    "no_society": "No Society Scanned"
+  },
+  "receipts": {
+    "saved": "Receipt processed and ready to be saved!",
+    "society_saved": "Society {0} saved to your profile!"
+  },
+  "scanner": {
+    "scan": "Scan",
+    "verify_details": "Verify Details",
+    "analyzing": "Analyzing Receipt...",
+    "retrying": "High demand, retrying... please wait",
+    "liters": "Liters",
+    "rate": "Rate",
+    "amount": "Amount",
+    "save_sync": "Save & Sync",
+    "try_again": "Try Again"
+  },
+  "home": {
+    "collection_cycle": "Collection Cycle: Oct 2026 (15 Days)",
+    "first_half": "First Half",
+    "second_half": "Second Half",
+    "recent_receipts": "Recent Receipts",
+    "buffalo": "Buffalo",
+    "liters": "Liters",
+    "fat": "Fat",
+    "snf": "SNF",
+    "amount": "Amount"
+  },
+  "stats": {
+    "estimated_bill": "Estimated Bill Value",
+    "avg": "Avg",
+    "days_complete": "15 Days Complete",
+    "calculated": "Calculated: 15 Oct",
+    "total_pour": "Total Pour:",
+    "liters": "Liters",
+    "cycle_15_day": "15-Day Cycle",
+    "avg_rate": "Avg Rate",
+    "cycle_closed": "Cycle Closed",
+    "collection_metrics": "Collection Metrics",
+    "total_milk": "Total Milk",
+    "great_yield": "Great yield",
+    "with_bonus": "with FAT Bonus",
+    "quality": "Quality",
+    "grade_a": "Grade A",
+    "shifts_attended": "Shifts Attended",
+    "total_shifts": "Total shifts",
+    "morning": "Morning (AM)",
+    "evening": "Evening (PM)"
+  },
+  "records": {
+    "title": "Milk Records",
+    "subtitle": "Bill Records & Milk Collection History",
+    "summary": "Collection Summary",
+    "cycles": "Cycles",
+    "quantity": "Quantity",
+    "total_bill": "Total Bill",
+    "avg_fat": "Average Fat: 7.5% FAT",
+    "cumulative": "Cumulative",
+    "billing_cycles": "Billing Cycles",
+    "every_15_days": "Every 15 Days",
+    "filter_all": "All",
+    "filter_completed": "Completed",
+    "filter_current": "Current",
+    "cycle": "Cycle:",
+    "calculated_bill": "CALCULATED BILL",
+    "poured_milk": "Poured Milk",
+    "view_receipts": "View Receipts",
+    "no_cycles": "No cycles found",
+    "back": "Back to Billing Cycles",
+    "receipts_title": "Receipts"
+  },
+  "profile": {
+    "title": "Farmer Profile",
+    "mobile": "Mobile",
+    "society_name": "Society Name",
+    "no_society_set": "No Society Set",
+    "sign_out": "Sign Out"
+  }
+}

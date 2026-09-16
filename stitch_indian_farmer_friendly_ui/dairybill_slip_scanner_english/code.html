@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DairyBill Slip Scanner</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-lowest": "#ffffff",
+            "surface-bright": "#faf8ff",
+            "on-primary-container": "#d3ffd5",
+            "inverse-primary": "#79db8d",
+            "inverse-on-surface": "#eef0ff",
+            "secondary-container": "#8fa7fe",
+            "surface-variant": "#dae2fd",
+            "tertiary-fixed": "#ffdcc3",
+            "on-error": "#ffffff",
+            "primary-container": "#15803d",
+            "on-tertiary-container": "#fff1e9",
+            "tertiary": "#854600",
+            "outline": "#0F172A",
+            "on-surface-variant": "#3f493f",
+            "inverse-surface": "#283044",
+            "primary": "#00652c",
+            "on-tertiary-fixed": "#2f1500",
+            "error": "#ba1a1a",
+            "on-secondary-fixed": "#00164e",
+            "on-surface": "#131b2e",
+            "surface-container-highest": "#dae2fd",
+            "tertiary-container": "#a95b00",
+            "on-tertiary-fixed-variant": "#6e3900",
+            "surface-tint": "#006d30",
+            "tertiary-fixed-dim": "#ffb77d",
+            "on-primary": "#ffffff",
+            "secondary-fixed": "#dce1ff",
+            "surface-dim": "#d2d9f4",
+            "on-secondary-fixed-variant": "#264191",
+            "on-primary-fixed-variant": "#005323",
+            "surface": "#faf8ff",
+            "surface-container": "#eaedff",
+            "secondary": "#1E3A8A",
+            "primary-fixed": "#95f8a7",
+            "background": "#faf8ff",
+            "secondary-fixed-dim": "#b6c4ff",
+            "surface-container-high": "#e2e7ff",
+            "error-container": "#ffdad6",
+            "primary-fixed-dim": "#79db8d",
+            "on-tertiary": "#ffffff",
+            "on-background": "#131b2e",
+            "on-secondary": "#ffffff",
+            "outline-variant": "#becabc",
+            "surface-container-low": "#f2f3ff",
+            "on-error-container": "#93000a",
+            "on-secondary-container": "#1d3989",
+            "on-primary-fixed": "#00210a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "gutter-mobile": "0.75rem",
+            "margin-mobile": "0.75rem",
+            "gutter": "1rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "margin": "1rem"
+          },
+          "fontFamily": {
+            "headline-xl-mobile": ["Space Grotesk"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Space Grotesk"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Space Grotesk"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Space Grotesk"],
+            "headline-md": ["Space Grotesk"],
+            "body-xl": ["Plus Jakarta Sans"],
+            "label-md": ["Space Grotesk"],
+            "headline-xl": ["Space Grotesk"],
+            "headline-lg": ["Space Grotesk"],
+            "body-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "26px", "fontWeight": "600" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "fontWeight": "700" }],
+            "label-lg": ["16px", { "lineHeight": "22px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-lg-mobile": ["22px", { "lineHeight": "30px", "letterSpacing": "0em", "fontWeight": "700" }],
+            "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "body-xl": ["20px", { "lineHeight": "30px", "fontWeight": "600" }],
+            "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "headline-xl": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .tactile-btn {
+      box-shadow: 0px 3px 0px #0F172A;
+      transition: transform 0.05s ease, box-shadow 0.05s ease;
+    }
+    .tactile-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0px 0px 0px #0F172A;
+    }
+    .scan-laser {
+      animation: scanAnim 2.5s ease-in-out infinite alternate;
+    }
+    @keyframes scanAnim {
+      0% { top: 12%; }
+      100% { top: 82%; }
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col justify-between items-center selection:bg-primary-container selection:text-on-primary">
+<!-- Mobile Wrapper Container (Fluid Single-Column Stack) -->
+<div class="w-full max-w-lg min-h-screen bg-surface flex flex-col relative pb-32 border-x-2 border-outline">
+<!-- Top Bar Component -->
+<header class="bg-surface flex justify-between items-center w-full px-space-md py-space-sm border-b-[2.5px] border-outline sticky top-0 z-40 bg-opacity-95 backdrop-blur-none">
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high border-2 border-outline flex items-center justify-center font-headline-md text-headline-md text-on-surface shadow-[0_2px_0_#0F172A]">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="badge">badge</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Coop Society</span>
+<span class="font-headline-md text-headline-md text-on-surface leading-tight">#408</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold tracking-tight">DairyBill</h1>
+</div>
+<div class="flex items-center">
+<div class="px-2.5 py-1 rounded-xl bg-surface-container-lowest border-2 border-outline font-label-sm text-label-sm text-on-surface flex items-center gap-1 shadow-[0_2px_0_#0F172A]">
+<span class="w-2 h-2 rounded-full bg-primary-container inline-block"></span>
+<span>English (EN)</span>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 px-space-md py-space-md flex flex-col gap-4">
+<!-- OCR Detection Viewfinder Card (Emerald Green Theme) -->
+<section class="w-full bg-surface-container-lowest rounded-xl border-[2.5px] border-outline p-3 shadow-[0_3px_0_#0F172A] relative overflow-hidden">
+<!-- Card Top Bar: Status + Badge -->
+<div class="flex justify-between items-center mb-2.5">
+<div class="flex items-center gap-1.5 bg-primary-fixed text-on-primary-fixed px-2 py-1 rounded-lg border-2 border-outline">
+<span class="material-symbols-outlined text-primary font-bold text-base" data-icon="check_circle" data-weight="fill">check_circle</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wide">Auto-Detected</span>
+</div>
+<div class="bg-primary-container text-on-primary px-2.5 py-1 rounded-lg border-2 border-outline font-label-sm text-label-sm font-bold tracking-wider">
+            100% OCR
+          </div>
+</div>
+<!-- Camera View Area (Viewfinder) -->
+<div class="relative w-full h-44 bg-inverse-surface rounded-lg border-2 border-outline overflow-hidden flex items-center justify-center">
+<!-- Stylized Mock Slip Image Inside Frame -->
+<div class="w-56 h-36 bg-surface-container-lowest rounded border-2 border-outline-variant p-2 flex flex-col justify-between opacity-95 shadow-inner">
+<div class="border-b border-dashed border-outline pb-1 flex justify-between items-center text-[10px] font-mono text-on-surface">
+<span>SARAS DAIRY COOP</span>
+<span>15/09/26 PM</span>
+</div>
+<div class="font-mono text-xs space-y-1 text-on-surface">
+<div class="flex justify-between"><span>QTY: 5.50 L</span><span>FAT: 4.30%</span></div>
+<div class="flex justify-between"><span>SNF: 8.40</span><span>RATE: ₹41.20</span></div>
+<div class="border-t border-outline pt-1 font-bold flex justify-between text-sm"><span>TOTAL:</span><span>₹ 226.60</span></div>
+</div>
+<div class="text-[9px] text-center font-mono text-on-surface-variant">*** VERIFIED SLIP ***</div>
+</div>
+<!-- Laser Scan Line Overlay -->
+<div class="scan-laser absolute left-4 right-4 h-0.5 bg-primary-fixed shadow-[0_0_8px_#95f8a7] z-10 pointer-events-none"></div>
+<!-- Viewfinder Corner Guides (Tactile Brackets) -->
+<div class="absolute top-2 left-2 w-5 h-5 border-t-4 border-l-4 border-primary-fixed pointer-events-none"></div>
+<div class="absolute top-2 right-2 w-5 h-5 border-t-4 border-r-4 border-primary-fixed pointer-events-none"></div>
+<div class="absolute bottom-2 left-2 w-5 h-5 border-b-4 border-l-4 border-primary-fixed pointer-events-none"></div>
+<div class="absolute bottom-2 right-2 w-5 h-5 border-b-4 border-r-4 border-primary-fixed pointer-events-none"></div>
+<!-- Small 'Retake' camera button at bottom corner of viewfinder -->
+<button class="tactile-btn absolute bottom-2.5 right-2.5 bg-surface-container-lowest text-on-surface px-2.5 py-1.5 rounded-lg border-2 border-outline flex items-center gap-1 font-label-sm text-label-sm z-20">
+<span class="material-symbols-outlined text-base" data-icon="photo_camera">photo_camera</span>
+<span>Retake</span>
+</button>
+</div>
+</section>
+<!-- Shift & Date Card (Navy/Blue accent) -->
+<section class="w-full bg-secondary text-on-secondary rounded-xl border-[2.5px] border-outline p-3 shadow-[0_3px_0_#0F172A] flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest text-secondary border-2 border-outline flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl font-bold" data-icon="calendar_today">calendar_today</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-secondary-fixed opacity-90 block">Collection Date</span>
+<span class="font-headline-md text-headline-md text-on-secondary tracking-tight">15-Sep-2026</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest text-on-surface px-2.5 py-1.5 rounded-lg border-2 border-outline flex items-center gap-1.5 shadow-[0_2px_0_#0F172A]">
+<span class="material-symbols-outlined text-secondary text-lg" data-icon="dark_mode" data-weight="fill">dark_mode</span>
+<div class="text-left leading-tight">
+<span class="font-label-sm text-label-sm block font-bold">Evening / PM</span>
+<span class="text-[11px] font-body-sm text-on-surface-variant font-normal">Buffalo Milk</span>
+</div>
+</div>
+</section>
+<!-- Extracted Data 2x2 Grid (High-contrast white cards with bold dark text) -->
+<section class="grid grid-cols-2 gap-3 w-full">
+<!-- Top-Left: Milk / Quantity -->
+<div class="bg-surface-container-lowest rounded-xl border-[2.5px] border-outline p-3 shadow-[0_3px_0_#0F172A] flex flex-col justify-between min-h-[104px]">
+<div class="flex justify-between items-start">
+<span class="font-label-md text-label-md text-on-surface-variant">Milk / Quantity</span>
+<span class="material-symbols-outlined text-primary text-xl" data-icon="water_drop" data-weight="fill">water_drop</span>
+</div>
+<div class="my-0.5">
+<div class="font-headline-xl-mobile text-headline-xl-mobile text-on-surface font-extrabold tracking-tight">5.5 L</div>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Total Liters</div>
+</div>
+<!-- Top-Right: FAT % -->
+<div class="bg-surface-container-lowest rounded-xl border-[2.5px] border-outline p-3 shadow-[0_3px_0_#0F172A] flex flex-col justify-between min-h-[104px]">
+<div class="flex justify-between items-start">
+<span class="font-label-md text-label-md text-on-surface-variant">FAT %</span>
+<span class="material-symbols-outlined text-tertiary text-xl" data-icon="science" data-weight="fill">science</span>
+</div>
+<div class="my-0.5">
+<div class="font-headline-xl-mobile text-headline-xl-mobile text-on-surface font-extrabold tracking-tight">4.3%</div>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Fat Percentage</div>
+</div>
+<!-- Bottom-Left: Rate / L -->
+<div class="bg-surface-container-lowest rounded-xl border-[2.5px] border-outline p-3 shadow-[0_3px_0_#0F172A] flex flex-col justify-between min-h-[104px]">
+<div class="flex justify-between items-start">
+<span class="font-label-md text-label-md text-on-surface-variant">Rate / L</span>
+<span class="material-symbols-outlined text-primary text-xl" data-icon="currency_rupee">currency_rupee</span>
+</div>
+<div class="my-0.5">
+<div class="font-headline-xl-mobile text-headline-xl-mobile text-on-surface font-extrabold tracking-tight">₹41.20</div>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Per Liter Rate</div>
+</div>
+<!-- Bottom-Right: SNF -->
+<div class="bg-surface-container-lowest rounded-xl border-[2.5px] border-outline p-3 shadow-[0_3px_0_#0F172A] flex flex-col justify-between min-h-[104px]">
+<div class="flex justify-between items-start">
+<span class="font-label-md text-label-md text-on-surface-variant">SNF</span>
+<span class="material-symbols-outlined text-secondary text-xl" data-icon="bar_chart">bar_chart</span>
+</div>
+<div class="my-0.5">
+<div class="font-headline-xl-mobile text-headline-xl-mobile text-on-surface font-extrabold tracking-tight">8.40</div>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Quality Metric</div>
+</div>
+</section>
+<!-- Calculated Bill Card (Green container) -->
+<section class="w-full bg-primary-container text-on-primary rounded-xl border-[2.5px] border-outline p-3.5 shadow-[0_3px_0_#0F172A] flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-xl bg-surface-container-lowest text-primary border-2 border-outline flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl" data-icon="calculate" data-weight="fill">calculate</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-primary-container uppercase tracking-wider block">Calculated Bill</span>
+<div class="font-headline-xl-mobile text-headline-xl-mobile text-on-primary font-black tracking-tight">₹ 226.60</div>
+</div>
+</div>
+<!-- Multiplication Pill -->
+<div class="bg-surface-container-lowest text-on-surface font-label-md text-label-md px-3 py-1.5 rounded-lg border-2 border-outline shadow-[0_2px_0_#0F172A]">
+          5.5L × ₹41.20
+        </div>
+</section>
+<!-- Action Buttons Stack -->
+<section class="w-full flex flex-col gap-2.5 mt-1">
+<!-- Big primary CTA (full width, 64dp, green solid) -->
+<button class="tactile-btn w-full min-h-[64px] bg-primary-container text-on-primary rounded-xl border-[2.5px] border-outline flex items-center justify-center gap-3 px-space-md">
+<span class="material-symbols-outlined text-2xl font-bold" data-icon="bookmark">bookmark</span>
+<span class="font-headline-sm text-headline-sm uppercase tracking-wide">Save to Records</span>
+</button>
+<!-- Secondary button (full width, white outlined) -->
+<button class="tactile-btn w-full min-h-[52px] bg-surface-container-lowest text-on-surface rounded-xl border-[2.5px] border-outline flex items-center justify-center gap-2 px-space-md">
+<span class="material-symbols-outlined text-xl" data-icon="refresh">refresh</span>
+<span class="font-label-lg text-label-lg">Retake Photo</span>
+</button>
+</section>
+</main>
+<!-- Bottom Navigation Bar with Elevated OCR Scanner -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface-container-lowest border-t-[3px] border-outline max-w-lg mx-auto right-0">
+<div class="flex justify-between items-center px-space-md py-2 relative">
+<!-- Left: Home -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant min-w-[64px] py-1 active:translate-y-0.5" href="#home">
+<span class="material-symbols-outlined text-2xl mb-0.5" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<!-- Center: Elevated Camera 'Scan' (active green) -->
+<div class="relative -top-6 flex flex-col items-center">
+<button class="tactile-btn w-16 h-16 rounded-full bg-primary-container text-on-primary border-[3.5px] border-outline flex items-center justify-center shadow-[0_3px_0_#0F172A] ring-4 ring-surface-container-lowest">
+<span class="material-symbols-outlined text-3xl font-bold" data-icon="photo_camera" data-weight="fill">photo_camera</span>
+</button>
+<span class="font-label-sm text-label-sm text-primary font-bold mt-1">Scan</span>
+</div>
+<!-- Right: Records -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant min-w-[64px] py-1 active:translate-y-0.5" href="#records">
+<span class="material-symbols-outlined text-2xl mb-0.5" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm">Records</span>
+</a>
+</div>
+</nav>
+</div>
+</body></html>
