@@ -78,6 +78,10 @@ export async function POST(req: NextRequest) {
       }
     }
 
+    if (!response) {
+      throw new Error("Failed to get response from AI");
+    }
+
     const resultText = response.text;
     if (!resultText) {
       throw new Error("Empty response from AI");
